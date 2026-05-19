@@ -1,11 +1,770 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <title>Złota Igła</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Złota Igła | Pracownia Krawiecka Warszawa</title>
+    <!-- Google Fonts & preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #fefaf5;
+            font-family: 'Inter', sans-serif;
+            color: #2e241f;
+            scroll-behavior: smooth;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f0e4d8;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #b48c6c;
+            border-radius: 8px;
+        }
+
+        h1, h2, h3, .logo-text, .serif {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* PREMIUM BUTTONS */
+        .btn-outline-light {
+            background: transparent;
+            border: 1px solid #dcc7b5;
+            color: #3d2b20;
+            padding: 10px 24px;
+            border-radius: 40px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-block;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .btn-outline-light:hover {
+            background: #e7d8cd;
+            border-color: #b48c6c;
+            transform: translateY(-2px);
+        }
+        .btn-gold {
+            background: #c8a27a;
+            border: none;
+            color: white;
+            padding: 12px 32px;
+            border-radius: 40px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .btn-gold:hover {
+            background: #b2875d;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.1);
+        }
+
+        /* HEADER / NAV */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .logo h2 {
+            font-size: 1.9rem;
+            letter-spacing: -0.5px;
+            font-weight: 600;
+            color: #2e241f;
+        }
+        .logo span {
+            font-size: 0.9rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            color: #8b6b4f;
+            letter-spacing: 2px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 36px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #3d2b20;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: #b48c6c;
+        }
+
+        /* HERO sekcja */
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            margin: 40px 0 60px 0;
+            gap: 40px;
+        }
+        .hero-content {
+            flex: 1;
+        }
+        .hero-badge {
+            background: #f3ebe4;
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #a57354;
+            margin-bottom: 20px;
+        }
+        .hero-content h1 {
+            font-size: 4.2rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .hero-content p {
+            font-size: 1.1rem;
+            color: #5e4b3c;
+            margin-bottom: 32px;
+            max-width: 90%;
+            line-height: 1.5;
+        }
+        .hero-actions {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+        .hero-image {
+            flex: 1;
+            background: linear-gradient(135deg, #e7dbcf 0%, #dccbbc 100%);
+            border-radius: 40px;
+            min-height: 340px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 20px 20px 30px rgba(0,0,0,0.03);
+        }
+        .hero-image i {
+            font-size: 9rem;
+            color: #b3865d;
+            opacity: 0.7;
+        }
+        .placeholder-text {
+            position: absolute;
+            bottom: 20px;
+            font-size: 0.8rem;
+            background: rgba(255,255,240,0.7);
+            padding: 4px 12px;
+            border-radius: 60px;
+            color: #7a5a40;
+        }
+
+        /* sekcja usług */
+        .services {
+            margin: 80px 0;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        .section-sub {
+            text-align: center;
+            color: #7c6857;
+            max-width: 600px;
+            margin: 0 auto 48px auto;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 36px;
+        }
+        .service-card {
+            background: white;
+            padding: 32px 24px;
+            border-radius: 32px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.02);
+            transition: all 0.3s;
+            text-align: center;
+            border: 1px solid #f3e9e2;
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 35px rgba(0,0,0,0.05);
+            border-color: #e3d2c4;
+        }
+        .service-icon {
+            font-size: 2.8rem;
+            color: #c6a07e;
+            margin-bottom: 20px;
+        }
+        .service-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+        }
+        .service-card p {
+            color: #6a5544;
+        }
+
+        /* KARTA KLIENTA */
+        .loyalty {
+            background: #f7f0e9;
+            border-radius: 56px;
+            padding: 48px 40px;
+            margin: 60px 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        .loyalty-content {
+            flex: 1;
+        }
+        .loyalty-badge {
+            background: #dbbc9b;
+            color: #2b1f17;
+            padding: 6px 16px;
+            border-radius: 40px;
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+        .loyalty-content h3 {
+            font-size: 2rem;
+            margin-bottom: 18px;
+        }
+        .stamp-progress {
+            display: flex;
+            gap: 16px;
+            margin: 30px 0 20px;
+            flex-wrap: wrap;
+        }
+        .stamp {
+            width: 54px;
+            height: 54px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.7rem;
+            color: #c0a07e;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            border: 1px solid #e0cfc0;
+        }
+        .stamp.filled {
+            background: #c8a27a;
+            color: white;
+            border: none;
+        }
+        .loyalty-highlight {
+            font-size: 1.8rem;
+            font-weight: 700;
+            font-family: 'Cormorant Garamond', serif;
+            margin: 10px 0;
+        }
+        .loyalty-card-right {
+            flex: 0.8;
+            background: #fff6ef;
+            border-radius: 32px;
+            padding: 28px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+        }
+        .loyalty-card-right i {
+            font-size: 2.2rem;
+            color: #c8a27a;
+            margin-bottom: 12px;
+        }
+
+        /* galeria — wkładka na zdjęcia (łatwa wymiana) */
+        .gallery-section {
+            margin: 70px 0;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
+        }
+        .gallery-placeholder {
+            background: #e7dbcf;
+            border-radius: 32px;
+            height: 260px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            transition: all 0.2s;
+            cursor: pointer;
+            color: #8a684c;
+            font-size: 1.1rem;
+            gap: 12px;
+            border: 1px dashed #cbb295;
+        }
+        .gallery-placeholder i {
+            font-size: 3rem;
+            opacity: 0.6;
+        }
+        .gallery-note {
+            text-align: center;
+            margin-top: 24px;
+            font-size: 0.85rem;
+            color: #9f846b;
+            background: #fcf8f3;
+            display: inline-block;
+            padding: 8px 18px;
+            border-radius: 40px;
+        }
+
+        /* kontakt + mapa */
+        .contact-section {
+            margin: 60px 0;
+            background: #fff9f4;
+            border-radius: 48px;
+            padding: 48px 40px;
+        }
+        .contact-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 48px;
+        }
+        .contact-info {
+            flex: 1;
+        }
+        .contact-info h4 {
+            font-size: 1.8rem;
+            margin-bottom: 24px;
+        }
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 28px;
+        }
+        .contact-detail i {
+            width: 44px;
+            height: 44px;
+            background: #e9ddd2;
+            border-radius: 60px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #a47148;
+            font-size: 1.3rem;
+        }
+        .contact-detail p {
+            font-weight: 500;
+        }
+        .map-placeholder {
+            flex: 1;
+            background: #e3d5ca;
+            border-radius: 32px;
+            min-height: 260px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 12px;
+            color: #5f4635;
+        }
+
+        footer {
+            border-top: 1px solid #e7dbcf;
+            padding: 40px 0;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+            font-size: 0.85rem;
+            color: #8e735c;
+        }
+        .social-icons a {
+            color: #9f7c5e;
+            margin-left: 20px;
+            font-size: 1.3rem;
+            transition: 0.2s;
+        }
+        .social-icons a:hover {
+            color: #c2a07e;
+        }
+
+        /* ========== ANIMOWANE IKONY SOCIAL MEDIA ========== */
+        .animated-social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.2s ease-in-out;
+        }
+
+        /* Efekt glow + bounce dla ikon w stopce i sekcji kontaktowej */
+        .social-icons a.animated-social-icon,
+        .contact-detail a.animated-social-icon {
+            transition: all 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Glow + delikatne unoszenie */
+        .social-icons a.animated-social-icon:hover,
+        .contact-detail a.animated-social-icon:hover {
+            transform: translateY(-5px) scale(1.08);
+            filter: drop-shadow(0 0 8px rgba(200, 162, 122, 0.7));
+            color: #c8a27a;
+        }
+
+        /* Specjalna klasa dla większych ikon w stopce */
+        .social-icons a.animated-social-icon {
+            font-size: 1.6rem;
+            margin-left: 18px;
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            background: #f7f0e9;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+
+        .social-icons a.animated-social-icon:hover {
+            background: #fff6ef;
+            transform: translateY(-6px) scale(1.1);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+        }
+
+        /* W sekcji kontakt ikony tekstowe również z bounce+glow */
+        .contact-detail a.animated-social-icon {
+            background: #e9ddd2;
+            padding: 8px 16px;
+            border-radius: 40px;
+            text-decoration: none;
+            color: #a47148;
+            font-weight: 500;
+            gap: 10px;
+        }
+
+        .contact-detail a.animated-social-icon i {
+            margin: 0;
+            width: auto;
+            height: auto;
+            background: transparent;
+            font-size: 1.2rem;
+        }
+
+        .contact-detail a.animated-social-icon:hover {
+            background: #c8a27a;
+            color: white;
+            transform: translateY(-3px) scale(1.02);
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+        }
+
+        /* Bounce delikatny dla przycisków */
+        @keyframes subtle-bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+        }
+
+        .animated-social-icon:hover i {
+            animation: subtle-bounce 0.3s ease;
+        }
+
+        @media (max-width: 800px) {
+            .container {
+                padding: 0 20px;
+            }
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                gap: 18px;
+            }
+            .loyalty {
+                flex-direction: column;
+            }
+            .social-icons a.animated-social-icon {
+                width: 38px;
+                height: 38px;
+                font-size: 1.3rem;
+                margin-left: 12px;
+            }
+        }
+        /* dodatkowy efekt */
+        .btn-outline-light i, .btn-gold i {
+            margin-right: 6px;
+        }
+    </style>
 </head>
-<body style="font-family: Arial; text-align: center; margin-top: 100px;">
-  <h1>🧵 Złota Igła</h1>
-  <p>Moja pierwsza strona na GitHub Pages ✨</p>
+<body>
+    <div class="container">
+        <!-- nawigacja -->
+        <div class="navbar">
+            <div class="logo">
+                <h2>Złota Igła <span>PRACOWNIA KRAWIECKA</span></h2>
+            </div>
+            <div class="nav-links">
+                <a href="#uslugi">Usługi</a>
+                <a href="#karta">Karta klienta</a>
+                <a href="#galeria">Galeria</a>
+                <a href="#kontakt">Kontakt</a>
+            </div>
+        </div>
+
+        <!-- HERO sekcja -->
+        <div class="hero">
+            <div class="hero-content">
+                <div class="hero-badge"><i class="fas fa-scissors"></i>  rękodzieło & precyzja</div>
+                <h1>Szycie na miarę<br>i poprawki z duszą</h1>
+                <p>Elegancja, dopasowanie i dbałość o detale. Twoja odzież zasługuje na najlepszą pracownię w Warszawie.</p>
+                <div class="hero-actions">
+                    <a href="#kontakt" class="btn-gold"><i class="fas fa-envelope"></i> Umów wizytę</a>
+                    <a href="#uslugi" class="btn-outline-light"><i class="fas fa-chevron-right"></i> Sprawdź usługi</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <i class="fas fa-thread"></i>
+                <div class="placeholder-text">✨ Atelier Złota Igła</div>
+            </div>
+        </div>
+
+        <!-- USŁUGI -->
+        <div id="uslugi" class="services">
+            <div class="section-title">Krawieckie rzemiosło</div>
+            <div class="section-sub">Każda poprawka wykonana z pasją i doświadczeniem — od skrócenia po kompletną przebudowę.</div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-tape"></i></div>
+                    <h3>Dopasowanie odzieży</h3>
+                    <p>Idealne dopasowanie garniturów, sukienek, spodni. Szyjemy pod indywidualną sylwetkę.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-expand-alt"></i></div>
+                    <h3>Poszerzanie odzieży</h3>
+                    <p>Profesjonalne poszerzanie w pasie, biodrach. Dodajemy zapasy z zachowaniem kroju.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-magic"></i></div>
+                    <h3>Poprawki krawieckie</h3>
+                    <p>Skracanie rękawów, zwężanie, wymiana zamków, cerowanie – kompleksowa naprawa.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-ruler-combined"></i></div>
+                    <h3>Szycie na miarę</h3>
+                    <p>Wyjątkowe kreacje, spódnice, marynarki szyte od podstaw według twojego projektu.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- KARTA KLIENTA + pieczątki -->
+        <div id="karta" class="loyalty">
+            <div class="loyalty-content">
+                <div class="loyalty-badge"><i class="fas fa-gem"></i>  Program lojalnościowy</div>
+                <h3>Złota Igła — Karta Klienta</h3>
+                <p>Zbieraj pieczątki z każdą wizytą! Już przy 5 wizycie odbierz stały rabat 20% na wszystkie usługi.</p>
+                <div class="stamp-progress">
+                    <div class="stamp filled"><i class="fas fa-stamp"></i></div>
+                    <div class="stamp filled"><i class="fas fa-stamp"></i></div>
+                    <div class="stamp filled"><i class="fas fa-stamp"></i></div>
+                    <div class="stamp filled"><i class="fas fa-stamp"></i></div>
+                    <div class="stamp"><i class="far fa-circle"></i></div>
+                </div>
+                <div class="loyalty-highlight">5. WIZYTA = RABAT 20%</div>
+                <p>Dołącz do grona stałych klientów i ciesz się wyjątkowym podejściem.</p>
+            </div>
+            <div class="loyalty-card-right">
+                <i class="fas fa-id-card"></i>
+                <p style="font-weight: 600; margin-top: 10px;">Karta cyfrowa</p>
+                <p style="font-size: 0.8rem;">Pytaj o pieczątki w pracowni. Zbierz cały komplet!</p>
+                <div style="margin-top: 20px;">
+                    <!-- linki z animacją w karcie klienta - ZMIENIONY LINK FACEBOOK -->
+                    <a href="https://www.facebook.com/profile.php?id=61589883100280" target="_blank" class="animated-social-icon" style="margin-right: 15px; background: #e9ddd2; padding: 8px 12px; border-radius: 30px; text-decoration: none; color:#a47148;">
+                        <i class="fab fa-facebook-f"></i> <span style="font-size:0.75rem;">Facebook</span>
+                    </a>
+                    <a href="https://www.instagram.com/zlota_igla.warszawa2/" target="_blank" class="animated-social-icon" style="background: #e9ddd2; padding: 8px 12px; border-radius: 30px; text-decoration: none; color:#a47148;">
+                        <i class="fab fa-instagram"></i> <span style="font-size:0.75rem;">Instagram</span>
+                    </a>
+                </div>
+                <small style="display: block; margin-top: 12px;">@złota.igla.warszawa</small>
+            </div>
+        </div>
+
+        <!-- GALERIA ZDJĘĆ – gotowa wkładka, w przyszłości podmiana zdjęć -->
+        <div id="galeria" class="gallery-section">
+            <div class="section-title">Nasza pracownia w obiektywie</div>
+            <div class="section-sub">Przestrzeń, w której powstaje magia krawiectwa – wkrótce własne zdjęcia wnętrza i realizacji.</div>
+            <div class="gallery-grid" id="galleryGrid">
+                <div class="gallery-placeholder" data-img-index="0">
+                    <i class="fas fa-camera-retro"></i>
+                    <span>📸 Strefa przymiarek</span>
+                </div>
+                <div class="gallery-placeholder" data-img-index="1">
+                    <i class="fas fa-cut"></i>
+                    <span>🧵 Stanowisko krawieckie</span>
+                </div>
+                <div class="gallery-placeholder" data-img-index="2">
+                    <i class="fas fa-tshirt"></i>
+                    <span>✨ Gotowe realizacje</span>
+                </div>
+                <div class="gallery-placeholder" data-img-index="3">
+                    <i class="fas fa-palette"></i>
+                    <span>👗 Projekty na miarę</span>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <div class="gallery-note">
+                    <i class="fas fa-upload"></i> Łatwa aktualizacja: wystarczy wkleić zdjęcia w miejsce placeholderów
+                </div>
+            </div>
+        </div>
+
+        <!-- KONTAKT + ADRES + EMAIL + TELEFON (z aktywnymi linkami social - ZMIENIONY LINK FACEBOOK) -->
+        <div id="kontakt" class="contact-section">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h4>Skontaktuj się z nami</h4>
+                    <div class="contact-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <p><strong>ul. Stanisława Staszica 18</strong></p>
+                            <p>Warszawa 01-188</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <p><strong>+48 574 266 080</strong></p>
+                            <p>pon.-pt. 10:00–18:00</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <p><strong>zlotaigla2026@gmail.com</strong></p>
+                            <p>odpowiadamy w ciągu 24h</p>
+                        </div>
+                    </div>
+                    <!-- Facebook z aktywnym linkiem + animowane ikony - ZMIENIONY LINK -->
+                    <div class="contact-detail">
+                        <i class="fab fa-facebook"></i>
+                        <div>
+                            <p><strong>Facebook:</strong> 
+                                <a href="https://www.facebook.com/profile.php?id=61589883100280" target="_blank" class="animated-social-icon">
+                                    Złota Igła - Pracownia Krawiecka <i class="fab fa-facebook-f" style="margin-left: 6px;"></i>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Instagram bez zmian -->
+                    <div class="contact-detail">
+                        <i class="fab fa-instagram"></i>
+                        <div>
+                            <p><strong>Instagram:</strong> 
+                                <a href="https://www.instagram.com/zlota_igla.warszawa2/" target="_blank" class="animated-social-icon">
+                                    @zlota_igla.warszawa2 <i class="fab fa-instagram"></i>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-placeholder">
+                    <i class="fas fa-map-pin" style="font-size: 2.4rem;"></i>
+                    <p><strong>📍 Staszica 18, Warszawa</strong></p>
+                    <p>Śródmieście – blisko metra</p>
+                    <small>Dojazd wygodny, pracownia na parterze</small>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div>© 2026 Złota Igła Pracownia Krawiecka | Wszystkie prawa zastrzeżone</div>
+            <div class="social-icons">
+                <!-- ZMIENIONY LINK FACEBOOK W STOPCE -->
+                <a href="https://www.facebook.com/profile.php?id=61589883100280" target="_blank" class="animated-social-icon" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/zlota_igla.warszawa2/" target="_blank" class="animated-social-icon" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="mailto:zlotaigla2026@gmail.com" class="animated-social-icon" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- PROSTE SCRIPT DO DYNAMICZNEJ GALERII + dodatkowa animacja -->
+    <script>
+        console.log("Strona Złota Igła – social media z animacjami i linkami");
+
+        // Funkcja do podmiany galerii (przyszłościowo)
+        window.updateGalleryImages = function(imageUrlArray) {
+            const galleryItems = document.querySelectorAll('#galleryGrid .gallery-placeholder');
+            for(let i = 0; i < galleryItems.length && i < imageUrlArray.length; i++) {
+                const item = galleryItems[i];
+                const imgUrl = imageUrlArray[i];
+                if(imgUrl) {
+                    const img = document.createElement('img');
+                    img.src = imgUrl;
+                    img.style.width = '100%';
+                    img.style.height = '100%';
+                    img.style.objectFit = 'cover';
+                    img.style.borderRadius = '32px';
+                    img.alt = 'Zdjęcie pracowni';
+                    item.innerHTML = '';
+                    item.style.padding = '0';
+                    item.style.overflow = 'hidden';
+                    item.style.border = 'none';
+                    item.appendChild(img);
+                }
+            }
+        };
+
+        const placeholders = document.querySelectorAll('.gallery-placeholder');
+        placeholders.forEach(ph => {
+            ph.addEventListener('click', function(e) {
+                alert("✨ Galeria zdjęć pracowni już wkrótce! 📸\nMożesz dodać własne obrazy zastępując placeholdery.");
+            });
+        });
+    </script>
 </body>
 </html>
+```
